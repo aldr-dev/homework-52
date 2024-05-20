@@ -15,10 +15,10 @@ const App = () => {
   const [combination, setCombination] = useState('');
 
   const resetGame = () => {
-    const cards = new CardDeck();
-    const newDeck = cards.getCards(0);
-    setDeck(cards);
+    const deck = new CardDeck();
+    const newDeck = deck.getCards(0);
     setCards(newDeck);
+    setDeck(deck);
     setCombination('');
   };
 
@@ -26,9 +26,10 @@ const App = () => {
     let dealtCards;
     if (deck.cards.length < 5) {
       dealtCards = deck.getCards(2);
-    } else  {
+    } else {
       dealtCards = deck.getCards(5);
     }
+
     setCards(dealtCards);
     setDeck(deck);
 
@@ -39,17 +40,23 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <div>Количество кард в колоде: {deck.cards.length}</div>
-      <div>Результат раунда: {combination}</div>
-      <button type="button" onClick={dealTheCards} disabled={deck.cards.length === 0}>Раздать карты</button>
-      <button type="button" onClick={resetGame}>Перезапустить игру</button>
-      {cards.length > 0 ? (
-        <div className="playingCards faceImages">
-          {cards.map((card, index) => (
-            <Card key={index} suit={card.suit} rank={card.rank}/>
-          ))}
-        </div>
-      ) : null}
+      <div className="amount-card">Количество карт в колоде: {deck.cards.length}</div>
+      <div className="result-round">Результат раунда: {combination}</div>
+
+      <div className="result-button">
+        <button className="deal-cards-btn" type="button" onClick={dealTheCards} disabled={deck.cards.length === 0}>Раздать карты</button>
+        {deck.cards.length === 0 ? <button className="reset-game-btn" type="button" onClick={resetGame}>Перезапустить игру</button> : null}
+      </div>
+
+      <div className="cart-list">
+        {cards.length > 0 ? (
+          <div className="playingCards faceImages">
+            {cards.map((card, index) => (
+              <Card key={index} suit={card.suit} rank={card.rank}/>
+            ))}
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };
