@@ -11,7 +11,7 @@ class PokerHand {
     this.cards = cards;
   }
 
-  getOutcome(): string {
+  getOutcome() {
     const rankCounts: RankCounts = {};
     let isFlush = true;
 

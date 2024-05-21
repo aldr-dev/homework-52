@@ -43,7 +43,7 @@ const App = () => {
       <div className="amount-card">Количество карт в колоде: {deck.cards.length}</div>
       <div className="result-round">Результат раунда: {combination}</div>
 
-      <div className="result-button">
+      <div className="action-buttons">
         <button className="deal-cards-btn" type="button" onClick={dealTheCards} disabled={deck.cards.length === 0}>Раздать карты</button>
         {deck.cards.length === 0 ? <button className="reset-game-btn" type="button" onClick={resetGame}>Перезапустить игру</button> : null}
       </div>
