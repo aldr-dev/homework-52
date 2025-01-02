@@ -18,8 +18,8 @@ The application allows determining the result of a poker round based on the deal
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/aldr-dev/homework-52.git
-   cd homework-52
+   git clone https://github.com/aldr-dev/Poker.git
+   cd Poker
    ```  
 2. Install dependencies:  
    ```bash
